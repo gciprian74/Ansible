@@ -1,6 +1,6 @@
 ---
 - name: Get IP configuration on Windows host
-  hosts: winservers
+  hosts: all
   tasks:
     - name: Run ipconfig
       win_command: ipconfig
