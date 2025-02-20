@@ -1,0 +1,59 @@
+---
+- name: Gestión de usuarios y grupos
+  hosts: webservers
+  become: true
+  vars_files:
+    - ./variables/vault.yml
+  
+  tasks:
+    - name: Crear grupo developers
+      group:
+        name: developers
+        state: present 
+    - name: Crear usuario1
+      user:
+        name: usuario1
+        password: "{{ usuario1_password }}"
+        group: developers
+        create_home: yes
+        shell: /bin/bash
+        state: present
+    - name: Crear usuario2
+      user:
+        name: usuario2
+        password: "{{ usuario2_password }}"
+        group: developers
+        create_home: yes
+        shell: /bin/bash
+        state: present
+
+    - name: Establecer permisos del directorio home para usuario1
+      file:
+        path: /home/usuario1
+        owner: usuario1
+        group: developers
+        mode: '0750'
+        state: directory
+
+    - name: Verificar grupo developers
+      command: getent group developers
+      register: group_check
+      changed_when: false
+
+    - name: Verificar usuarios
+      command: getent passwd {{ item }}
+      loop:
+        - usuario1
+        - usuario2
+      register: user_check
+      changed_when: false
+    
+    - name: Establecer permisos del directorio home para usuario2
+      file:
+        path: /home/usuario2
+        owner: usuario2
+        group: developers
+        mode: '0750'
+        state: directory
+
+
