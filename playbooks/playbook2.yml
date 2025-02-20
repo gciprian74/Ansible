@@ -1,0 +1,11 @@
+- name: Get IP configuration on Windows host
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Run ipconfig
+      win_command: ipconfig
+      register: ipconfig_output
+
+    - name: Display ipconfig output
+      debug:
+        var: ipconfig_output.stdout_lines
