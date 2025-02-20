@@ -1,0 +1,11 @@
+- name: "Primer PlayBook"
+  hosts: all
+  gather_facts: true
+  become: true
+  become_method: "ansible.builtin.sudo"
+
+  tasks:
+    - name: "Mostrar info de las VMs con ansible_facts"
+      ansible.builtin.debug:
+        msg: "Me estoy conectando al nodo {{ansible_nodename}} - {{ansible_host}} - que corre {{ansible_lsb.description}}"
+        
