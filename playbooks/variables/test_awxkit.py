@@ -17,5 +17,11 @@ config.credentials = utils.PseudoNamespace(
 session_connection = ApiV2().load_session().get()
 session_connection.get(resources)
 
-template_by_id = session_connection.job_templates.get(id=22).results[0]
+template_by_id = session_connection.job_templates.get(id=9).results[0]
 print(template_by_id)
+
+# Lanzar job
+launch=job_templates.JobTemplate.launch(template_by_id)
+
+# Wait for result
+job_templates.JobTemplate.wait_until_status(launch, status="succesful", timeout=30)
