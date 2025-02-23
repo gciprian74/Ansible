@@ -1,5 +1,5 @@
 - name: Get IP configuration on Windows host
-  hosts: all
+  hosts: winservers
   gather_facts: false
   tasks:
     - name: Run ipconfig

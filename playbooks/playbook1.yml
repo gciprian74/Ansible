@@ -1,5 +1,5 @@
 - name: "Primer PlayBook"
-  hosts: all
+  hosts: webservers devservers
   gather_facts: true
   become: true
   become_method: "ansible.builtin.sudo"
