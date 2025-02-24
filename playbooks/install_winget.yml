@@ -5,7 +5,7 @@
 
   tasks:
     - name: Download winget
-      win_shell: 'Hello, this is a sample text.' ! Out-File -FilePath C:\temp\
+      win_shell: echo 'Hello, this is a sample text.' > C:\temp\test.txt
         
 #    - name: Install winget    
 #      win_shell:  
