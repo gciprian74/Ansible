@@ -4,7 +4,7 @@
 
   tasks:
     - name: Create File
-      win_command: echo 'Hello, this is a sample text.' > C:\temp\test.txt
+      win_command: echo "Hello, this is a sample text." > C:\temp\test.txt
       register: test_output  
       
     - name: Show File  
