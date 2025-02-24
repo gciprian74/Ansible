@@ -10,4 +10,4 @@
       
     - name: Show File  
       debug:
-        var: test_output
+        var: test_output_lines
