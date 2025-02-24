@@ -1,6 +1,7 @@
 ---
 - name: Install winget
   hosts: winservers
+  gather_facts: no
 
   tasks:
     - name: Download winget

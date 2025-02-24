@@ -1,6 +1,6 @@
 - name: Get IP configuration on Windows host
   hosts: winservers
-  gather_facts: false
+  gather_facts: no
   tasks:
     - name: Run ipconfig
       win_command: ipconfig
