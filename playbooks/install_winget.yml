@@ -1,4 +1,3 @@
----
 - name: Install winget
   hosts: winservers
   gather_facts: no
@@ -6,10 +5,7 @@
   tasks:
     - name: Create File
       win_shell: echo 'Hello, this is a sample text.' > C:\temp\test.txt
-        
-    - name: Check File    
-      win_shell: echo C:\temp\test.txt
-      register: test_output
+      register: test_output  
       
     - name: Show File  
       debug:
