@@ -16,5 +16,11 @@
         autoremove: yes
 
     - name: Reboot the system if needed
-      reboot:
-        when: ansible_facts['pkg_mgr'] == 'apt'
+      block:
+        - name: Reboot the system if needed
+          reboot:
+            when: ansible_facts['pkg_mgr'] == 'apt'
+      rescue:
+        - name: Handle reboot failure
+          debug:
+            msg: "Reboot failed or not needed. Please check the system manually."
