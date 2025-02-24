@@ -1,11 +1,11 @@
 ---
 - name: Update Ubuntu System
   hosts: webservers devservers
-  become: true
+  become: yes
   tasks:
     - name: Print variables
       debug:
-        msg: "User {{ ansible_user }} , password {{ ansible_password }} , becomePass {{ ansible_become_password }}"
+        msg: "User {{ ansible_user }} , password {{ ansible_password }} , becomePass"
     
     - name: Update apt cache
       apt:
