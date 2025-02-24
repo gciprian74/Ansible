@@ -9,4 +9,4 @@
       
     - name: Show File  
       debug:
-        var: test_output.stdout
+        var: test_output.stdout_lines
