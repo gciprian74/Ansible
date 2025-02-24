@@ -7,7 +7,5 @@
     - name: Download winget
       win_shell: echo 'Hello, this is a sample text.' > C:\temp\test.txt
         
-#    - name: Install winget    
-#      win_shell:  
-#        cmd: Add-AppxPackage -Path C:\temp\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
-#
+    - name: Install winget    
+      win_shell: notepad.exe -Path C:\temp\test.txt
