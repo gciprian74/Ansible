@@ -5,7 +5,7 @@
 
   tasks:
     - name: Download winget
-      win_shell: Invoke-WebRequest -Uri https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.7/npp.8.7.7.portable.x64.zip -OutFile C:\temp\
+      win_shell: 'Hello, this is a sample text.' ! Out-File -FilePath C:\temp\
         
 #    - name: Install winget    
 #      win_shell:  
