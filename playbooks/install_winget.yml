@@ -5,10 +5,7 @@
 
   tasks:
     - name: Download winget
-      win_shell: ipconfig
-      
-#      win_shell:
-#        cmd: Invoke-WebRequest -Uri https://aka.ms/get-winget -OutFile C:\temp\Microsoft\
+      win_shell: Invoke-WebRequest -Uri https://aka.ms/get-winget -OutFile C:\temp\Microsoft\
         
 #    - name: Install winget    
 #      win_shell:  
