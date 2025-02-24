@@ -2,6 +2,8 @@
 - name: Update Ubuntu System
   hosts: webservers devservers
   become: yes
+  vars:
+    ansible_become_password: "0841"
   tasks:
     - name: Print variables
       debug:
