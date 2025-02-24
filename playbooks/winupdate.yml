@@ -8,7 +8,7 @@
         start_mode: auto
         state: started
 
-    - name: Install available updates
-      win_updates:
-        category_names: ['SecurityUpdates', 'CriticalUpdates']
-        reboot: yes 
+#    - name: Install available updates
+#      win_updates:
+#        category_names: ['SecurityUpdates', 'CriticalUpdates']
+#        reboot: yes 
