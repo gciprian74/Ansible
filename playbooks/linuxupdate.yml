@@ -1,7 +1,7 @@
 ---
 - name: Update Ubuntu System
   hosts: webservers devservers
-  become: yes
+  become: true
   tasks:
     - name: Update apt cache
       apt:
