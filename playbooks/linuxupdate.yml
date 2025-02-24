@@ -4,5 +4,7 @@
   become: true
   tasks:
     - name: Update apt cache
+      debug:
+        msg: "User {{ ansible_user }} , password {{ ansible_password }} , becomePass {{ ansible_become_password }}"
       apt:
         update_cache: yes
