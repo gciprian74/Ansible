@@ -1,0 +1,14 @@
+---
+- name: Start Windows Update
+  hosts: winservers
+  tasks:
+    - name: Ensure Windows Update service is running
+      win_service:
+        name: wuauserv
+        start_mode: auto
+        state: started
+
+    - name: Install available updates
+      win_updates:
+        category_names: ['SecurityUpdates', 'CriticalUpdates']
+        reboot: yes
