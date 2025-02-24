@@ -1,6 +1,7 @@
 ---
 - name: Start Windows Update
   hosts: winservers
+  gather_facts: no
   tasks:
     - name: Ensure Windows Update service is running
       win_service:
