@@ -2,6 +2,7 @@
 - name: Update Ubuntu System
   hosts: webservers devservers
   become: true
+  become_method: sudo
   tasks:
     - name: Update apt cache
       apt:
