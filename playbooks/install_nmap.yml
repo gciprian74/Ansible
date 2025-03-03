@@ -1,15 +1,13 @@
 - name: Install nmap
   hosts: securitysrv
-
   become: yes
+
   tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
     - name: Install nmap
       apt:
         name: nmap
         state: present
-
-#    - name: Ensure Nginx is running and enabled
-#      service:
-#        name: nginx
-#        state: started
-#        enabled: yes
