@@ -5,6 +5,6 @@
 
   tasks:
     - name: Install Python 3
-      apt:
+      dnf:
         name: python3
         state: present
