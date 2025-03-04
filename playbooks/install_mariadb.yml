@@ -1,37 +1,22 @@
----
-- name: Install MariaDB
-  hosts: databases
+- name: setup Mysql with medium_db db and remote login
   become: yes
-
+  hosts: Dbservers
   tasks:
-    - name: Update apt cache
-      apt:
-        update_cache: yes
-
-    - name: Install MariaDB package
-      apt:
-        name: mariadb-server
-        state: present
-
-    - name: Start and enable MariaDB service
-      systemd:
-        name: mariadb
+    - name: Installing Mysql  and dependencies
+      package:
+       name: "{{item}}"
+       state: present
+       update_cache: yes
+      loop:
+       - mysql-server
+       - mysql-client 
+       - python3-mysqldb
+       - libmysqlclient-dev
+      become: yes    
+    
+    - name: start and enable mysql service
+      service:
+        name: mysql
         state: started
-        enabled: yes
-
-    - name: Secure MariaDB installation
-      command: mysql_secure_installation
-      args:
-        creates: /etc/mysql/debian.cnf
-
-    - name: Create a database
-      mysql_db:
-        name: testdb
-        state: present
-
-    - name: Create a database user
-      mysql_user:
-        name: vmadmin
-        password: 0841
-        priv: 'testdb.*:ALL'
-        state: present
+        enabled: yes    
+    
