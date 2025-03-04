@@ -1,0 +1,37 @@
+---
+- name: Install MariaDB
+  hosts: databases
+  become: yes
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install MariaDB package
+      apt:
+        name: mariadb-server
+        state: present
+
+    - name: Start and enable MariaDB service
+      systemd:
+        name: mariadb
+        state: started
+        enabled: yes
+
+    - name: Secure MariaDB installation
+      command: mysql_secure_installation
+      args:
+        creates: /etc/mysql/debian.cnf
+
+    - name: Create a database
+      mysql_db:
+        name: testdb
+        state: present
+
+    - name: Create a database user
+      mysql_user:
+        name: vmadmin
+        password: 0841
+        priv: 'testdb.*:ALL'
+        state: present
