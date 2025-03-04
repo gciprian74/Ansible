@@ -1,4 +1,4 @@
-- name: setup Mysql with medium_db db and remote login
+- name: setup Mysql
   become: yes
   hosts: databases
   tasks:
