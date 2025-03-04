@@ -1,6 +1,6 @@
 - name: setup Mysql with medium_db db and remote login
   become: yes
-  hosts: Dbservers
+  hosts: databases
   tasks:
     - name: Installing Mysql  and dependencies
       package:
