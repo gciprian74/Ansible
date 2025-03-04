@@ -10,7 +10,7 @@
       loop:
        - mysql-server
        - mysql-client 
-       - python3-mysqldb
+       - python3-pymysql
        - libmysqlclient-dev
       become: yes    
 
