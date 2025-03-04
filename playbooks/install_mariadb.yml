@@ -13,13 +13,7 @@
        - python3-mysqldb
        - libmysqlclient-dev
       become: yes    
-    
-    - name: start and enable mysql service
-      service:
-        name: mysql
-        state: started
-        enabled: yes    
-
+ 
     - name: Secure MariaDB installation
       command: mysql_secure_installation
       args:
@@ -36,3 +30,9 @@
         password: mypassword
         priv: 'mydatabase.*:ALL'
         state: present    
+
+    - name: start and enable mysql service
+      service:
+        name: mysql
+        state: started
+        enabled: yes    
