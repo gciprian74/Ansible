@@ -19,4 +19,20 @@
         name: mysql
         state: started
         enabled: yes    
-    
+
+    - name: Secure MariaDB installation
+      command: mysql_secure_installation
+      args:
+        creates: /etc/mysql/debian.cnf
+
+    - name: Create a database
+      mysql_db:
+        name: mydatabase
+        state: present
+
+    - name: Create a database user
+      mysql_user:
+        name: myuser
+        password: mypassword
+        priv: 'mydatabase.*:ALL'
+        state: present    
