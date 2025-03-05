@@ -1,6 +1,6 @@
 - name: setup Mysql
-  become: yes
   hosts: databases
+  become: yes
   tasks:
     - name: Installing Mysql and dependencies
       package:
