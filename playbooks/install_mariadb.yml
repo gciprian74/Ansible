@@ -1,7 +1,7 @@
 - name: setup Mysql
-  become: yes
   hosts: databases
-  tasks:
+  become: yes
+    tasks:
     - name: Installing Mysql and dependencies
       package:
        name: "{{item}}"
